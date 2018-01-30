@@ -1,4 +1,4 @@
-#!/usr/env/python
+#!/usr/bin/env python
 
 from slackclient import SlackClient
 import json
@@ -16,7 +16,7 @@ def set_snooze(minutes=25):
     return _process_response(api_call)
 
 
-def set_status(user='jonesp', status='Pomming'):
+def set_status(user, status='Pomming'):
     profile = json.dumps({
             "status_text": status,
             "status_emoji": ":tomato:"
@@ -40,7 +40,7 @@ def _process_response(api_call):
 
 def main():
     set_snooze()
-    set_status()
+    set_status(user)
 
 
 if __name__ == "__main__":
