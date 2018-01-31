@@ -3,8 +3,16 @@ slack-pom
 
 [![Build Status](https://travis-ci.org/paulwilljones/slack-pom.svg?branch=master)](https://travis-ci.org/paulwilljones/slack-pom)    [![Docker Repository on Quay](https://quay.io/repository/paulwilljones/slack-pom/status "Docker Repository on Quay")](https://quay.io/repository/paulwilljones/slack-pom)
 
+* Before you start:
+
+    `Required ENVIRONMENT variables are SLACK_API_TOKEN & SLACK_USER`
+ 
+    `Create your legacy TOKEN here - https://api.slack.com/custom-integrations/legacy-tokens`
+
+    `Get your Slack user name from the end of the resulting URL - https://hod-dsp.slack.com/messages`
+
 * Build the image:
-  `make build`
+    `make build`
 
 * Run the container:
     `make pomon`
