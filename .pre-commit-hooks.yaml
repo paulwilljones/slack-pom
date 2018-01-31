@@ -1,0 +1,38 @@
+-   id: autopep8
+    name: autopep8
+    entry: autopep8
+    language: python
+    files: \.py$
+    args: [-i]
+
+-   id: forbid-tabs
+    name: No-tabs checker
+    description: "Forbid files containing tabs to be committed"
+    entry: forbid_tabs
+    language: python
+    files: ''
+    exclude: (Makefile|debian/rules)(\.in)?$
+
+-   id: remove-tabs
+    name: Tabs remover
+    description: "Replace tabs by whitespaces before committing"
+    entry: remove_tabs
+    language: python
+    args: [ --whitespaces-count, '4' ]
+    files: ''
+    exclude: (Makefile|debian/rules)(\.in)?$
+
+-   id: yamllint
+    name: yamllint
+    description: This hook runs yamllint.
+    entry: yamllint
+    language: python
+    types: [file, yaml]
+    ignore: (.pre-commit-config.yaml|.pre-commit-hooks.yaml)?$
+
+-   id: validate_manifest
+    name: Validate Pre-Commit Manifest
+    description: This validator validates a pre-commit hooks manifest file
+    entry: pre-commit-validate-manifest
+    language: python
+    files: ^(\.pre-commit-hooks\.yaml|hooks\.yaml)$
