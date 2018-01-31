@@ -9,10 +9,10 @@ env:
     - COMMIT=${TRAVIS_COMMIT::8}
 
 install:
-  - docker build -t slack-pom:travis .
+  - docker build -t $REPO:travis .
 
 script:
-  - docker images
+  - docker images $REPO:travis
 
 after_success:
   - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" quay.io

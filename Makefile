@@ -28,6 +28,12 @@ help:
 	@echo "Run pre-commit hooks locally"
 	@echo "make run-hooks"
 	@echo ""
+	@echo "Build container"
+	@echo "make build"
+	@echo ""
+	@echo "Run container"
+	@echo "make run"
+	@echo ""
 
 NAME := slack-pom
 REGISTRY := quay.io
@@ -39,7 +45,7 @@ CONTAINER_NAME := $(REGISTRY)/$(NAME):$(GIT_SHA)
 
 export NAME REGISTRY BUILD_DATE GIT_SHA GIT_TAG GIT_MESSAGE CONTAINER_NAME
 
-.PHONY: all help build run
+.PHONY: all help build run install-hooks clean-hooks run-hooks
 
 all: build test
 
@@ -53,7 +59,7 @@ clean:
 	docker rmi $(CONTAINER_NAME)
 
 run: build
-	docker run -t $(CONTAINER_NAME)
+	docker run --rm -e SLACK_API_TOKEN=${SLACK_API_TOKEN} -e SLACK_USER=${SLACK_USER} -it $(CONTAINER_NAME)
 
 install-hooks:
 	pip install -r requirements.txt
