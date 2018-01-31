@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - REPO=quay.io/paulwilljones/slack-pom
+    - COMMIT=${TRAVIS_COMMIT::8}
+
+install:
+  - docker build -t slack-pom:travis .
+
+script:
+  - docker images
+
+after_success:
+  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" quay.io
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:latest
+  - docker push $REPO

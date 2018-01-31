@@ -1,9 +1,9 @@
 #!/usr/bin/env python
-
-from slackclient import SlackClient
 import json
 import os
 import sys
+
+from slackclient import SlackClient
 
 
 slack_token = os.environ["SLACK_API_TOKEN"]
@@ -18,8 +18,8 @@ def set_snooze(minutes=25):
 
 def set_status(user, status='Pomming'):
     profile = json.dumps({
-            "status_text": status,
-            "status_emoji": ":tomato:"
+        "status_text": status,
+        "status_emoji": ":tomato:"
     })
 
     api_call = sc.api_call(

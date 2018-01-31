@@ -1,0 +1,40 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    sha: v1.2.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-executables-have-shebangs
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: detect-private-key
+    -   id: check-json
+    -   id: check-xml
+    -   id: check-yaml
+    -   id: debug-statements
+-   repo: https://github.com/pre-commit/mirrors-autopep8
+    sha: v1.3.4
+    hooks:
+    -   id: autopep8
+-   repo: https://github.com/Lucas-C/pre-commit-hooks
+    sha: v1.1.4
+    hooks:
+    -   id: forbid-tabs
+    -   id: remove-tabs
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-bandit
+    sha: v1.0.3
+    hooks:
+    -   id: python-bandit-vulnerability-check
+-   repo: https://github.com/asottile/reorder_python_imports.git
+    sha: v1.0.1
+    hooks:
+    -   id: reorder-python-imports
+-   repo: https://github.com/kintoandar/pre-commit
+    sha: v2.1.0
+    hooks:
+    -   id: terraform_fmt
+    -   id: terraform_validate
+-   repo: https://github.com/pre-commit/pre-commit
+    sha: v1.5.1
+    hooks:
+    -   id: validate_manifest
