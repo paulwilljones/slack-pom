@@ -61,6 +61,9 @@ clean:
 run: build
 	docker run --rm -e SLACK_API_TOKEN=${SLACK_API_TOKEN} -e SLACK_USER=${SLACK_USER} -it $(CONTAINER_NAME)
 
+clear-status:
+	curl -XPOST "https://slack.com/api/users.profile.set?token=${SLACK_API_TOKEN}&profile=%7B%22status_text%22%3A%22%22%2C%20%22status_emoji%22%3A%20%22%22%7D&user=${SLACK_USER}&pretty=1"
+
 install-hooks:
 	pip install -r requirements.txt
 	pip install --upgrade pre-commit
