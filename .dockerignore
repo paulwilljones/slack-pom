@@ -1,0 +1,5 @@
+pomming.sh
+.travis.yml
+.pre-commit-*
+README.md
+Makefile
