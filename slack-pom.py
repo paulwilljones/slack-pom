@@ -19,9 +19,9 @@ def set_snooze(minutes=25):
 
 def set_pomodoro_status():
     timeLeft = 1500
-    while timeLeft > 0:
+    while timeLeft > 60:
         remaining = _get_remaining_pomo_duration()
-        status = "Currently in a Pomodoro. I'll be available in {} minutes" \
+        status = "Doing a Pomodoro for another {} minutes" \
             .format(remaining / 60)
         _set_status(status, ":tomato:")
         time.sleep(60)
