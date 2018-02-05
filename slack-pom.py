@@ -21,7 +21,7 @@ def set_pomodoro_status():
     timeLeft = 1500
     while timeLeft > 60:
         remaining = _get_remaining_pomo_duration()
-        status = "Doing a Pomodoro for another {} minutes" \
+        status = "In a Pomodoro for another {} minutes" \
             .format(remaining / 60)
         _set_status(status, ":tomato:")
         time.sleep(60)
@@ -41,7 +41,9 @@ def _process_response(api_call):
 
 def _get_remaining_pomo_duration():
     api_call = sc.api_call('dnd.info')
-    return _process_response(api_call)
+    response = _process_response(api_call)
+
+    return response['snooze_remaining']
 
 
 def _set_status(status_text, status_emoji):
@@ -56,9 +58,7 @@ def _set_status(status_text, status_emoji):
         profile=profile
     )
 
-    response = _process_response(api_call)
-
-    return response['snooze_remaining']
+    return _process_response(api_call)
 
 
 def main():
