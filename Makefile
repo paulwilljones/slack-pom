@@ -36,7 +36,7 @@ help:
 	@echo ""
 
 NAME := slack-pom
-REGISTRY := quay.io
+REGISTRY := quay.io/paulwilljones
 BUILD_DATE := $(shell date -u +%Y-%m-%dT%H:%M:%SZ)
 GIT_SHA := $(shell git log -1 --format=%h)
 GIT_TAG := $(shell bash -c 'TAG=$$(git tag | tail -n1); echo "$${TAG:none}"')
@@ -54,6 +54,7 @@ build:
 		--rm=true \
 		--file=Dockerfile \
 		.
+	docker tag "$(CONTAINER_NAME)" $(REGISTRY)/$(NAME):latest
 
 clean:
 	docker rmi $(CONTAINER_NAME)
