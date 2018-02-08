@@ -60,7 +60,7 @@ clean:
 	docker rmi $(CONTAINER_NAME)
 
 run: build
-	docker run --rm -e SLACK_API_TOKEN=${SLACK_API_TOKEN} -e SLACK_USER=${SLACK_USER} -it $(CONTAINER_NAME)
+	docker run -d --rm --name slack-pom -e SLACK_API_TOKEN=${SLACK_API_TOKEN} -e SLACK_USER=${SLACK_USER} -it $(CONTAINER_NAME)
 
 pomon: run
 
