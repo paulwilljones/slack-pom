@@ -32,6 +32,15 @@ def clear_status():
     _set_status("", "")
 
 
+def set_available():
+    api_call = sc.api_call(
+        'users.setPresence',
+        presence="auto"
+    )
+
+    return _process_response(api_call)
+
+
 def _process_response(api_call):
     if api_call.get('ok'):
         return api_call
@@ -65,6 +74,7 @@ def main():
     set_snooze()
     set_pomodoro_status()
     clear_status()
+    set_available()
 
 
 if __name__ == "__main__":
