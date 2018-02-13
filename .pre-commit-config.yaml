@@ -29,12 +29,7 @@ repos:
     sha: v1.0.1
     hooks:
     -   id: reorder-python-imports
--   repo: https://github.com/kintoandar/pre-commit
-    sha: v2.1.0
-    hooks:
-    -   id: terraform_fmt
-    -   id: terraform_validate
 -   repo: https://github.com/pre-commit/pre-commit
-    sha: v1.5.1
+    sha: v1.6.0
     hooks:
     -   id: validate_manifest
