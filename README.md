@@ -3,6 +3,10 @@ slack-pom
 
 [![Build Status](https://travis-ci.org/paulwilljones/slack-pom.svg?branch=master)](https://travis-ci.org/paulwilljones/slack-pom)    [![Docker Repository on Quay](https://quay.io/repository/paulwilljones/slack-pom/status "Docker Repository on Quay")](https://quay.io/repository/paulwilljones/slack-pom)
 
+Retrieve your Slack user id [here](https://api.slack.com/methods/users.profile.set/test)
+
+Create a Legacy token [here](https://api.slack.com/custom-integrations/legacy-tokens)
+
 * Build the image:
     `make build`
 
