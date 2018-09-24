@@ -9,7 +9,8 @@ slack-pom
  
     `Create your legacy TOKEN here - https://api.slack.com/custom-integrations/legacy-tokens`
 
-    `Get your Slack user name from the end of the resulting URL - https://hod-dsp.slack.com/messages`
+    `Login to the slack channel you wish to use. Once authenticated, visit this link: https://api.slack.com/methods/users.info/test
+    `Get your Slack user name by clicking on the @<YOUR_USERNAME> link, on the same line as the `user` Argument column.`
 
 * Build the image:
     `make build`
